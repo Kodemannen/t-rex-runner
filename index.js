@@ -494,6 +494,7 @@
         /**
          * Update the game status to started.
          */
+        
         startGame: function () {
             this.runningTime = 0;
             this.playingIntro = false;
@@ -511,7 +512,8 @@
             window.addEventListener(Runner.events.FOCUS,
                 this.onVisibilityChange.bind(this));
         },
-
+        
+        
         clearCanvas: function () {
             this.canvasCtx.clearRect(0, 0, this.dimensions.WIDTH,
                 this.dimensions.HEIGHT);
@@ -557,7 +559,7 @@
 
                 if (!collision) {
                     this.distanceRan += this.currentSpeed * deltaTime / this.msPerFrame;
-
+                    document.getElementById("Score").innerHTML = this.distanceMeter.getActualDistance(Math.ceil(this.distanceRan));
                     if (this.currentSpeed < this.config.MAX_SPEED) {
                         this.currentSpeed += this.config.ACCELERATION;
                     }
@@ -594,6 +596,7 @@
                     }
                 }
             }
+            document.getElementById("Playing").innerHTML = this.playing;
 
             if (this.playing || (!this.activated &&
                 this.tRex.blinkCount < Runner.config.MAX_BLINK_COUNT)) {
@@ -1675,7 +1678,8 @@
                 this.setDuck(true);
             }
         },
-
+    
+        
         /**
          * Draw the t-rex to a particular position.
          * @param {number} x
@@ -1768,7 +1772,7 @@
                 this.jumpVelocity = this.config.DROP_VELOCITY;
             }
         },
-
+        
         /**
          * Update frame for a jump.
          * @param {number} deltaTime
