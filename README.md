@@ -1,6 +1,6 @@
 ## t-rex-runner for AI training
 
-Game is modified slightly for easier web scraping.
+Modified for easier web scraping for AI training.
 
 the trex runner game extracted from chrome offline err page.
 
